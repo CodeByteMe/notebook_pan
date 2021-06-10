@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>编程</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Description">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+  <style>
+    :root {
+      --docsifytabs-border-color: #ededed;
+      --docsifytabs-tab-highlight-color: #42b983;
+    }
+  </style>
+</head>
+
+<body>
+	<div id="app"></div>
+	<script>
+		window.$docsify = {
+      name: '编程笔记',
+      repo: '',
+      relativePath: true,
+      coverpage: true,
+      loadNavbar: true,
+      onlyCover: false,
+      search: {
+        maxAge: 86400000,
+        paths: [
+          '/笔记/搜集/CAS文档英语学习',
+          '/笔记/搜集/CDN收集',
+          '/笔记/搜集/github',
+          '/笔记/搜集/一些网站搜集',
+          '/笔记/搜集/临时手机号和邮箱',
+          '/笔记/搜集/免费二级域名',
+          '/笔记/搜集/免费酸酸_酸酸乳',
+          '/笔记/搜集/几个文库免积分下载链接',
+          '/笔记/搜集/国外虚拟身份证或信用卡信息',
+          '/笔记/搜集/图床收集',
+          '/笔记/搜集/服务器相关信息',
+          '/笔记/搜集/网盘搜索引擎',
+          '/笔记/编程/csharp',
+          '/笔记/编程/java',
+          '/笔记/编程/javascript',
+          '/笔记/编程/python',
+          '/笔记/编程/springboot',
+          '/笔记/常用工具/docker',
+          '/笔记/常用工具/dubbo',
+          '/笔记/常用工具/flink',
+          '/笔记/常用工具/git',
+          '/笔记/常用工具/vscode',
+          '/笔记/常用工具/zookeeper',
+          '/笔记/服务器/apache',
+          '/笔记/服务器/nginx',
+          '/笔记/服务器/tomcat',
+          '/笔记/服务商/cloudflare',
+          '/笔记/服务商/google',
+          '/笔记/浏览器/chrome',
+          '/笔记/其他/常用技巧',
+          '/笔记/数据库/oracle',
+          '/笔记/数据库/postgre',
+          '/笔记/数据库/redis',
+          '/笔记/系统/deepin',
+          '/笔记/系统/linux',
+          '/笔记/系统/termux',
+          '/笔记/系统/windows',
+          '/参考文档/markdown',
+        ],
+        placeholder: "搜索",
+        noData: "什么都没有",
+        depth: 4
+      },
+      markdown: {
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "dot") {
+              return (
+                '<div class="viz">'+ Viz(code, "SVG")+'</div>'
+              );
+            }
+            if (lang === "tex") {
+              return (
+                '<span class="tex">'+ katex.renderToString(code, {
+                    throwOnError: false
+                })+'</span>'
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+      tabs: {
+        persist    : true,      // default
+        sync       : true,      // default
+        theme      : 'classic', // default
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      }
+    }
+	</script>
+	<!-- Docsify v4 -->
+	<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+	<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.21.0/components/prism-java.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-json.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-xml-doc.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-css.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-javascript.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-bash.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-python.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-yaml.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-properties.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-csharp.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="https://cdn.jsdelivr.net/npm/viz.js@1.8.0/viz.js"></script>
+</body>
+
+</html>

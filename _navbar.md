@@ -1,0 +1,10 @@
+* [CSDN博客](https://blog.csdn.net/wwb1234560)
+* [若轻导航](http://www.lightly.ml/)
+* Java学习
+  * [黑马最新JavaWeb入门到入土（idea版）_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili](https://www.bilibili.com/video/BV1J4411877m?p=8)
+  * [最新雷神SSM框架（从入门到精通）【已完结】_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili](https://www.bilibili.com/video/BV1D5411x7ZQ?from=search&seid=17682472912019615838)
+  * [尚硅谷大数据全套视频教程40阶段（2019.6月线下班）_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili](https://www.bilibili.com/video/BV1BJ411U7hW?from=search&seid=6919243101254231806)
+  * [JAVA培训班_好口碑JAVA培训机构推荐_传智播客JAVA培训](http://java.itcast.cn/?number=1&from=groupmessage)
+  * [廖雪峰的java](https://www.liaoxuefeng.com/wiki/1252599548343744/1281319524892705)
+  * [曾仕强《易经的智慧》_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili](https://www.bilibili.com/video/av86946032?p=10)
+* [微软爱写作](http://aimwriting.mtutor.engkoo.com/)
