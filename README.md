@@ -23,10 +23,12 @@ kill -9 进程号
 
 #### **常用工具**
 
+* [ant](笔记/常用工具/ant.md)
 * [docker](笔记/常用工具/docker.md)
 * [dubbo](笔记/常用工具/dubbo.md)
 * [flink](笔记/常用工具/flink.md)
 * [git](笔记/常用工具/git.md)
+* [velocity](笔记/常用工具/velocity.md)
 * [vscode](笔记/常用工具/vscode.md)
 * [zookeeper](笔记/常用工具/zookeeper.md)
 
