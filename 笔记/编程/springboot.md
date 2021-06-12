@@ -204,6 +204,7 @@ public class ScheduleTask implements SchedulingConfigurer {
 # springboot打包jar再动态编译的方法
 因为需要动态生成`class`文件, 所以必然要在jar外边创建一些文件夹, 故可以[将jar先解压, 然后运行](java.md#解压jar包后运行)  
 然后在动态生成`class`的时候[加入依赖的jar包](#springboot的war包放到tomcat动态编译无法找到相关依赖jar或调用类)到`-classpath`  
+[参考](https://blog.csdn.net/benwdm/article/details/84922816)
 
 # springboot的war包放到tomcat动态编译无法找到相关依赖jar或调用类
 在测试动态编译的时候,本地可能因为有maven仓库, 不会有依赖jar或调用类找不到的情况  
