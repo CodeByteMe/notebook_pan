@@ -113,3 +113,7 @@ service oracle restart
 reboot
 ```
 [参考](https://blog.csdn.net/lyd135364/article/details/81661662)
+
+# 问题
+## oracle补丁下载步骤
+可以[参考](https://blog.csdn.net/weixin_34292287/article/details/92407939)这里  

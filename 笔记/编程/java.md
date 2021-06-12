@@ -1,3 +1,24 @@
+# jar包常用网站
+* [maven的jar包查询](https://mvnrepository.com/)
+* [类名找jar包](https://www.findjar.com/)
+
+# java运行springboot的jar包
+
+```bash
+# nohup保证后台运行,后边需要加上&
+# 操作系统常用输出流:
+# 0：标准输入流 stdin
+# 1：标准输出流 stdout
+# 2：标准错误流 stderr
+# > output,实际是 1 > output的省略用法
+# < input,实际是 0 < input 的省略用法
+# 2>&1是将标准错误流也写到标准输出流中
+
+nohup java -jar app.jar >output 2>&1 &
+```
+
+[参考](https://www.jianshu.com/p/563497a6e1a7)
+
 # 使用poi读取excel文件
 * 引入的jar包
 
@@ -87,26 +108,94 @@ public class ExcelTest {
 
 [参考](https://blog.csdn.net/xichengqc/article/details/90443773)
 
-# java运行springboot的jar包
+# java创建xml结构的数据
+```java
+import java.io.File;
+import java.io.StringWriter;
 
-```bash
-# nohup保证后台运行,后边需要加上&
-# 操作系统常用输出流:
-# 0：标准输入流 stdin
-# 1：标准输出流 stdout
-# 2：标准错误流 stderr
-# > output,实际是 1 > output的省略用法
-# < input,实际是 0 < input 的省略用法
-# 2>&1是将标准错误流也写到标准输出流中
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
-nohup java -jar app.jar >output 2>&1 &
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class XMLCreator {
+    public void create() {
+        //创建一个新的 DocumentBuilderFactory，
+        //使用静态方法调用 newInstance()方法，创建一个新的实例
+        DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+        
+        try {
+            DocumentBuilder builder=factory.newDocumentBuilder();
+            // 添加根标签: languages
+            Element root=document.createElement("languages");
+            // 设置根元素的属性的键值对
+            root.setAttribute("category", "it");
+
+            Element lan1=document.createElement("lan");
+            lan1.setAttribute("id", "1");
+            Element name1=document.createElement("name");
+            // 设置标签文本值
+            name1.setTextContent("Java");
+            Element ide1=document.createElement("ide");
+            ide1.setTextContent("Eclipse");
+
+            Element lan2=document.createElement("lan");
+            lan2.setAttribute("id", "2");
+            Element name2=document.createElement("name");
+            name2.setTextContent("Swift");
+            Element ide2=document.createElement("ide");
+            ide2.setTextContent("Xcode");
+
+            Element lan3=document.createElement("lan");
+            lan3.setAttribute("id", "3");
+            Element name3=document.createElement("name");
+            name3.setTextContent("C#");
+            Element ide3=document.createElement("ide");
+            ide3.setTextContent("Visual Studio");
+
+            // 进行结点的组装
+            lan1.appendChild(name1);
+            lan1.appendChild(ide1);
+            lan2.appendChild(name2);
+            lan2.appendChild(ide2);
+            lan3.appendChild(name3);
+            lan3.appendChild(ide3);
+            root.appendChild(lan1);
+            root.appendChild(lan2);
+            root.appendChild(lan3);
+            document.appendChild(root);
+            
+            TransformerFactory transformerFactory=TransformerFactory.newInstance();
+            // 创建一个Transformer, 用于将xml数据转为其他格式 
+            Transformer transformer=transformerFactory.newTransformer();
+            StringWriter writer=new StringWriter();
+            // 将xml数据写入writer
+            transformer.transform(new DOMSource(document), new StreamResult(writer));
+
+            // 可以直接得到writer的String数据
+            System.out.println(writer.toString());
+            
+            // 也可以转换成文件，第二个参数的参数传入文件对象
+            transformer.transform(new DOMSource(document), new StreamResult(new File("languages.xml")));
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
+    }
+}
 ```
-
-[参考](https://www.jianshu.com/p/563497a6e1a7)
-
-# jar包常用网站
-* [maven的jar包查询](https://mvnrepository.com/)
-* [类名找jar包](https://www.findjar.com/)
+[参考](https://www.cnblogs.com/siwuxie095/p/6642793.html)
 
 # .classpath的常用理解
 `.classpath.xml`文件用于记录项目编译环境的所有信息,包括  
@@ -169,5 +258,30 @@ kind的各种值:
     lib: 指定项目引用的依赖jar包
 ```
 
-[参考_1](https://blog.csdn.net/m0_37664906/article/details/78274143)  
-[参考_2](https://www.cnblogs.com/himonkey/p/11188642.html)
+[参考1](https://blog.csdn.net/m0_37664906/article/details/78274143)  
+[参考2](https://www.cnblogs.com/himonkey/p/11188642.html)
+
+# 获取当前项目包的根路径和目录内的资源
+```java
+// 第一种
+String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+// 第二种
+String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getFile();
+// 如果路径有Unicode字符, 则需转码
+path = java.net.URLDecoder.decode(path, "UTF-8");
+// 获取包内资源
+java.net.URL fileURL = this.getClass().getResource("/UI/image/background.jpg");
+// 以流获取包内资源
+InputStream in = this.getClass().getResourceAsStream("/UI/image/background.txt");
+```
+[参考](https://www.cnblogs.com/zeciiii/p/4178824.html)
+
+# fasejson
+## 转换实体类的时间为yyyy-MM-dd
+```java
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+// 不然默认的格式化是UNIX时间, 当时间小于1970年时会有问题
+String s = JSONObject.toJSONStringWithDateFormat(entityInDate, "yyyy-MM-dd HH:mm:ss", SerializerFeature.WriteDateUseDateFormat); 
+```
+[参考](https://blog.csdn.net/qq_31986651/article/details/104963425)
