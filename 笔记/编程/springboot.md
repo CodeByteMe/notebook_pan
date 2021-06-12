@@ -111,7 +111,6 @@ public class PublishAsynExecutor {
 [参考](https://www.cnblogs.com/fujingtao5470/p/12666747.html)
 
 # 定时任务
-## 普通定时任务创建
 主方法添加`@EnableScheduling`注解
 ```java
 import org.springframework.boot.autoconfigure.SpringBootApplication;
