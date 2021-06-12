@@ -3,7 +3,7 @@
 * [类名找jar包](https://www.findjar.com/)
 
 # java运行springboot的jar包
-
+## 直接运行jar包
 ```bash
 # nohup保证后台运行,后边需要加上&
 # 操作系统常用输出流:
@@ -16,8 +16,23 @@
 
 nohup java -jar app.jar >output 2>&1 &
 ```
-
 [参考](https://www.jianshu.com/p/563497a6e1a7)
+
+## 解压jar包后运行
+用于需要class动态编译的情况, 直接在解压的根目录运行下边的命令即可
+```bash
+# 解压xxx.jar到当前目录
+jar -xvf xxx.jar
+# 运行jar
+java org.springframework.boot.loader.JarLauncher
+
+# 也可以用unzip解压jar到某目录
+unzip xxx.jar -d springboot/
+cd springboot/
+# 再运行jar
+java org.springframework.boot.loader.JarLauncher
+```
+[参考](https://blog.csdn.net/benwdm/article/details/84922816)
 
 # 使用poi读取excel文件
 * 引入的jar包

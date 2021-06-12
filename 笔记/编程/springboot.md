@@ -201,9 +201,13 @@ public class ScheduleTask implements SchedulingConfigurer {
 # springboot动态编译class
 可以[参考](#springboot的war包动态编译无法找到相关依赖jar或调用类), 这里边参考了[这篇](https://blog.csdn.net/zhao_xinhu/article/details/82499062)博客
 
-# springboot的war包动态编译无法找到相关依赖jar或调用类
+# springboot打包jar再动态编译的方法
+因为需要动态生成`class`文件, 所以必然要在jar外边创建一些文件夹, 故可以[将jar先解压, 然后运行](java.md#解压jar包后运行)  
+然后在动态生成`class`的时候[加入依赖的jar包](#springboot的war包放到tomcat动态编译无法找到相关依赖jar或调用类)到`-classpath`  
+
+# springboot的war包放到tomcat动态编译无法找到相关依赖jar或调用类
 在测试动态编译的时候,本地可能因为有maven仓库, 不会有依赖jar或调用类找不到的情况  
-但部署到服务器, 由于动态编译的时候没有显式的指明依赖的jar包路径, 所以可能出现调用的jar包找不到的情况  
+但部署到tomcat服务器, 由于动态编译的时候没有显式的指明依赖的jar包路径, 所以可能出现调用的jar包找不到的情况  
 可参考如下进行操作  
 ```java
 import java.io.File;
@@ -324,42 +328,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 区别在于`run()`方法的参数类型不同  
 [参考](https://www.cnblogs.com/zuidongfeng/p/9926471.html)
 
-# 获取springboot的jar包中的jar方法
-依赖jar包
-```xml
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-loader</artifactId>
-  <version>2.2.4.RELEASE</version>
-</dependency>
-```
-```java
-public void testJarLaunch() throws IOException, ClassNotFoundException {
-    String path = "jar:file:/IdeaProjects/demo-application/target/demo-application-1.0-SNAPSHOT.jar!";
-    URL url = new URL(path);
-    Handler handler = new Handler();
-    org.springframework.boot.loader.jar.JarFile root = handler.getRootJarFileFromUrl(url);
-
-    JarFileArchive archive = new JarFileArchive(root);
-    //灵魂方法getNestedArchives获取嵌套的jar等文件，参数是个EntryFilter，过滤条件
-    List<Archive> list = archive.getNestedArchives(entry -> {
-        System.out.println(entry.getName());
-        return entry.getName().endsWith("BOOT-INF/lib/app-core-1.0-SNAPSHOT.jar");
-    });
-
-    //list里就是每个jar了
-    for (Archive entries : list) {
-        //获取jar里的内容
-        Iterator<Archive.Entry> it = entries.iterator();
-        while (it.hasNext()){
-            Archive.Entry entry = it.next();
-            String name = entry.getName();
-            System.out.println(name);
-        }
-    }
-}
-```
-[参考](https://blog.csdn.net/qq_35752021/article/details/107302766)
+# 获取springboot的jar包中的jar的class方法
+[重写classloader加载jar包](https://blog.csdn.net/shuaizai88/article/details/105016029)  
+[直接获取class的路径](https://blog.csdn.net/qq_35752021/article/details/107302766)  
 
 # springboot的异常邮件提醒
 依赖jar包
