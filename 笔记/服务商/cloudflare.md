@@ -16,47 +16,47 @@ https://od.lightly.ml
 重定向url    https://heymind.github.io/tools/microsoft-graph-api-auth
 ```
 
-  * 相关流程图
-    * ![CF上的OneDrive](../images/onedrive_1.png)  
-      这里需要将`client_id`记下来
-    * ![CF上的OneDrive](../images/onedrive_2.png)  
-      ![CF上的OneDrive](../images/onedrive_3.png)  
-      ![CF上的OneDrive](../images/onedrive_4.png)  
-      这里需要将密码保存为`client_secret`
-    * ![CF上的OneDrive](../images/onedrive_5.png)
-      添加API权限,需要有`offline_access`, `Files.Read`, `Files.Read.All`
-    * 获取[refresh_token](https://heymind.github.io/tools/microsoft-graph-api-auth)
-      填入`Client ID`,获取`code`(`code`比较长)
-      ![CF上的OneDrive](../images/onedrive_6.png)
-    * 填入`Client ID`, `Client Secret`, `Code`, 点击`GET TOKEN`获取`refresh_token`
-      ![CF上的OneDrive](../images/onedrive_7.png)
-    * ![CF上的OneDrive](../images/onedrive_8.png)
-      搜索`refresh_token`，然后复制，引号内的都是  
-      如果这里的`refresh_token`获取时有跨域报错  
-      ```plain
-        AADSTS9002326: Cross-origin token redemption is permitted only for the 'Single-Page Application' client-type
-      ```  
-      那么可以使用Postman进行请求
-      ```yml
-        请求url: https://login.microsoftonline.com/common/oauth2/v2.0/token
-        请求方法: GET
-        请求参数: 需要使用body的x-www-form-urlencoded
-            grant_type: authorization_code
-            code: 刚刚页面获取的code
-            redirect_uri: https://heymind.github.io/tools/microsoft-graph-api-auth
-            client_id: 刚刚注册时获取的client_id
-            client_secret: 刚刚注册时获取的client_secret
-      ```  
-      然后响应体里有refresh_token, 此处[参考](https://blog.imzjw.cn/posts/cf-onedrive/)了这里
-  * 从APP获取的相应参数
+* 新建时相关流程图
+  * ![CF上的OneDrive](../images/onedrive_1.png)  
+    这里需要将`client_id`记下来
+  * ![CF上的OneDrive](../images/onedrive_2.png)  
+    ![CF上的OneDrive](../images/onedrive_3.png)  
+    ![CF上的OneDrive](../images/onedrive_4.png)  
+    这里需要将密码保存为`client_secret`
+  * ![CF上的OneDrive](../images/onedrive_5.png)
+    添加API权限,需要有`offline_access`, `Files.Read`, `Files.Read.All`
+  * 获取[refresh_token](https://heymind.github.io/tools/microsoft-graph-api-auth)
+    填入`Client ID`,获取`code`(`code`比较长)
+    ![CF上的OneDrive](../images/onedrive_6.png)
+  * 填入`Client ID`, `Client Secret`, `Code`, 点击`GET TOKEN`获取`refresh_token`
+    ![CF上的OneDrive](../images/onedrive_7.png)
+  * ![CF上的OneDrive](../images/onedrive_8.png)
+    搜索`refresh_token`，然后复制，引号内的都是  
+    如果这里的`refresh_token`获取时有跨域报错  
+    ```plain
+      AADSTS9002326: Cross-origin token redemption is permitted only for the 'Single-Page Application' client-type
+    ```  
+    那么可以使用Postman进行请求
+    ```yml
+      请求url: https://login.microsoftonline.com/common/oauth2/v2.0/token
+      请求方法: GET
+      请求参数: 需要使用body的x-www-form-urlencoded
+          grant_type: authorization_code
+          code: 刚刚页面获取的code
+          redirect_uri: https://heymind.github.io/tools/microsoft-graph-api-auth
+          client_id: 刚刚注册时获取的client_id
+          client_secret: 刚刚注册时获取的client_secret
+    ```  
+    然后响应体里有refresh_token, 此处[参考](https://blog.imzjw.cn/posts/cf-onedrive/)了这里
+* 从APP获取的相应参数
 
-```
+```yml
 client_id: 1231231233213213211
 client_secret: 123321qweewqrter
 refresh_token: asdffdsa.asdffdsa.asdffdsa
 ```
 
-  * worker新建代码
+* worker新建代码
 
 ```javascript
 const config = {
@@ -515,7 +515,7 @@ function renderHTML(body) {
 ```
 
 
-  * 代码中`config`的相关配置信息
+* 代码中`config`的相关配置信息
 
 ```javascript
 const config = {
@@ -573,13 +573,10 @@ const NAME = "admin"
 const PASS = "password"
 ```
 
-  * CloudFlare绑定workers的域名
-    1. 进入到CF的`Workers`,点击`添加路由`
-    2. 为相应的`Worker`分配一个子域名,例如
-    ```
-    onedrive.lightly.ml/*
-    ```
-    1. 在`DNS`处添加一个`cname`解析指向worker的域名.
+* CloudFlare绑定workers的域名
+  1. 进入到CF的`Workers`,点击`添加路由`
+  2. 为相应的`Worker`分配一个子域名,例如`onedrive.lightly.ml/*`
+  3. 在`DNS`处添加一个`cname`解析指向worker的域名.
 
 参考教程:  
 https://www.shanyemangfu.com/cfw-onedrive.html  
@@ -587,8 +584,9 @@ https://www.bilibili.com/video/av89209298/
 https://github.com/heymind/OneDrive-Index-Cloudflare-Worker  
 
 # cloudflare搭建网页代理
-1. [jsproxy](https://github.com/EtherDream/jsproxy)
-创建一个worker, 取一个子域名, 然后把下边的代码复制到左侧代码框, 然后`Save and deploy`
+1. [jsproxy](https://github.com/EtherDream/jsproxy)  
+创建一个worker, 取一个子域名, 然后把下边的代码复制到左侧代码框, 然后`Save and deploy`  
+
 ```javascript
 'use strict'
 
@@ -881,11 +879,13 @@ async function parseYtVideoRedir(urlObj, newLen, res) {
   return urlObj
 }
 ```
+
 这里提供一个比较快的[jsproxy代理](https://proxy.justyy.com), 参考了[这篇](https://justyy.com/archives/44577)博客
 
-2. [siteproxy](https://github.com/netptop/siteproxy)
-创建一个worker, 取一个子域名, 然后把下边的代码复制到左侧代码框, 然后`Save and deploy`
-```javascript
+2. [siteproxy](https://github.com/netptop/siteproxy)  
+创建一个worker, 取一个子域名, 然后把下边的代码复制到左侧代码框, 然后`Save and deploy`  
+
+```javascript 
 !function(e){var t={};function r(n){if(t[n])return t[n].exports;var i=t[n]={i:n,l:!1,exports:{}};return e[n].call(i.exports,i,i.exports,r),i.l=!0,i.exports}r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)r.d(n,i,function(t){return e[t]}.bind(null,i));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=54)}([function(e,t){var r,n,i=e.exports={};function o(){throw new Error("setTimeout has not been defined")}function a(){throw new Error("clearTimeout has not been defined")}function s(e){if(r===setTimeout)return setTimeout(e,0);if((r===o||!r)&&setTimeout)return r=setTimeout,setTimeout(e,0);try{return r(e,0)}catch(t){try{return r.call(null,e,0)}catch(t){return r.call(this,e,0)}}}!function(){try{r="function"==typeof setTimeout?setTimeout:o}catch(e){r=o}try{n="function"==typeof clearTimeout?clearTimeout:a}catch(e){n=a}}();var u,c=[],f=!1,l=-1;function h(){f&&u&&(f=!1,u.length?c=u.concat(c):l=-1,c.length&&d())}function d(){if(!f){var e=s(h);f=!0;for(var t=c.length;t;){for(u=c,c=[];++l<t;)u&&u[l].run();l=-1,t=c.length}u=null,f=!1,function(e){if(n===clearTimeout)return clearTimeout(e);if((n===a||!n)&&clearTimeout)return n=clearTimeout,clearTimeout(e);try{n(e)}catch(t){try{return n.call(null,e)}catch(t){return n.call(this,e)}}}(e)}}function p(e,t){this.fun=e,this.array=t}function g(){}i.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var r=1;r<arguments.length;r++)t[r-1]=arguments[r];c.push(new p(e,t)),1!==c.length||f||s(d)},p.prototype.run=function(){this.fun.apply(null,this.array)},i.title="browser",i.browser=!0,i.env={},i.argv=[],i.version="",i.versions={},i.on=g,i.addListener=g,i.once=g,i.off=g,i.removeListener=g,i.removeAllListeners=g,i.emit=g,i.prependListener=g,i.prependOnceListener=g,i.listeners=function(e){return[]},i.binding=function(e){throw new Error("process.binding is not supported")},i.cwd=function(){return"/"},i.chdir=function(e){throw new Error("process.chdir is not supported")},i.umask=function(){return 0}},function(e,t){var r;r=function(){return this}();try{r=r||new Function("return this")()}catch(e){"object"==typeof window&&(r=window)}e.exports=r},function(e,t,r){"use strict";(function(e){
 /*!
  * The buffer module from node.js, for the browser.
