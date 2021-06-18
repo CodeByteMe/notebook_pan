@@ -35,8 +35,8 @@ reveiver = ['接收方邮箱']
 # message = MIMEText('邮件内容', 'plain', 'utf-8')
 # 也可以使用这种通过命令行传入邮件内容的方式
 message = MIMEText(sys.argv[1], 'plain', 'utf-8')
-message['From'] = Header('发送方名称', 'utf8')
-message['To'] = Header('接收方名称', 'utf8')
+message['From'] = Header('发送方名称<发送方邮箱>', 'utf-8')
+message['To'] = Header('接收方名称', 'utf-8')
 
 subject = '邮件标题'
 message['Subject'] = Header(subject, 'utf-8')
