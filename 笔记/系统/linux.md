@@ -386,3 +386,9 @@ chkconfig os_init.sh on
 ```
 
 [参考](https://www.cnblogs.com/longchengruoxi/p/11451062.html)
+
+# telnet退出
+```bash
+# 可以使用ctrl c
+# 也可以Ctrl ], 然后quit回车退出
+```
