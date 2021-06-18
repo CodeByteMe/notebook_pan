@@ -196,3 +196,13 @@ Failed to parse remote port from server output
 这可能是因为更新了vscode之后,远端服务器上的remotessh相关组件依旧比较老,所以两边不配套  
 再装回原来的版本即可  
 [参考](https://blog.csdn.net/qq_36763031/article/details/115526981)  
+
+## vscode添加markdown用户片段不生效
+需要在`settings.json`中激活如下配置, 如果是自定义格式, 则可以将`[markdown]`换为自定义格式, 如`.todo`格式可以写`[todo]`
+```json
+{
+	"[markdown]": {
+        "editor.quickSuggestions": true
+    }
+}
+```
