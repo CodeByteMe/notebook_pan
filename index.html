@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <style>
     :root {
       --docsifytabs-border-color: #ededed;
@@ -106,6 +107,9 @@
 
               var image = new Image();
               image.src = "http://youtube.com/favicon.ico";
+              if (onlineMusic == null) {
+                return ;
+              }
               var loadFunction = setInterval(function() {
                 if (image.complete) {
                   onlineMusic.setAttribute("src", "https://www.youtube.com/embed/5qap5aO4i9A");
@@ -122,6 +126,35 @@
 
             });
         },
+        function(hook, vm) {
+          hook.afterEach(function(html, next)  {
+            var newHtml = '<div id="vcomments"></div>';
+
+            next(html + newHtml);
+          });
+          hook.doneEach(function() {
+            var readCounterHTML =  
+              '<span id="' + vm.route.path + '" class="leancloud_visitors" data-flag-title="' + vm.route.path + ' ">'
+              + '<em class="post-meta-item-text" style="font-style: normal;">当前页访问次数: </em>'
+              + '<i class="leancloud-visitors-count" style="font-style: normal;color: #7f8c8d;"></i>'
+              + '</span>'
+            var readCounterDiv = document.createElement("div");
+            readCounterDiv.style.paddingBottom = "2em";
+            readCounterDiv.innerHTML = readCounterHTML;
+            document.querySelector(".markdown-section").prepend(readCounterDiv);
+
+            new Valine({
+                el: '#vcomments',
+                appId: 'eDh3HdWa5hfbaKHvXdW0CbiP-MdYXbMMI',
+                appKey: 'kzB7z1dJjn0DP9m6y8oXSpy1',
+                placeholder: '快来留下你的评论吧 !',
+                path: vm.route.path,
+                visitor: true,
+                requiredFields: ['nick','mail'],
+                avatar: "robohash"
+            });
+          });
+        }
       ],
       tabs: {
         persist    : true,      // default
