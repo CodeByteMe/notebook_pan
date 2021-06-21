@@ -81,7 +81,7 @@ localStorage.clear()
 
 [参考](https://www.cnblogs.com/wuweb/p/7846752.html)
 
-## JavaScript判断是否可以上外网
+# JavaScript判断是否可以上外网
 ```javascript
 // 主要功能用于实现不同网加载不同的链接
 var onlineMusic = document.querySelector("#onlineMusic");
