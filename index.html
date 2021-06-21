@@ -103,20 +103,21 @@
         function(hook, vm) {
             hook.doneEach(function() {
               var onlineMusic = document.querySelector("#onlineMusic");
-              var timestamp = new Date().getTime();
 
               var image = new Image();
               image.src = "http://youtube.com/favicon.ico";
               if (onlineMusic == null) {
                 return ;
               }
+
+              var timestamp = new Date().getTime();
               var loadFunction = setInterval(function() {
                 if (image.complete) {
                   onlineMusic.setAttribute("src", "https://www.youtube.com/embed/5qap5aO4i9A");
                   clearInterval(loadFunction);
                 } else {
                   var currentTimestamp = new Date().getTime();
-                  if (currentTimestamp - timestamp >= 2300) {
+                  if (currentTimestamp - timestamp >= 1000) {
                     onlineMusic.setAttribute("src", "//player.bilibili.com/player.html?aid=285319271&bvid=BV13f4y1S7zq&cid=178189768&page=1");
                     image.src="";
                     clearInterval(loadFunction);
