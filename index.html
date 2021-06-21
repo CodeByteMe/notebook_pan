@@ -134,8 +134,9 @@
             next(html + newHtml);
           });
           hook.doneEach(function() {
+            var currentPageRoute = "/easul" + vm.route.path;
             var readCounterHTML =  
-              '<span id="' + vm.route.path + '" class="leancloud_visitors" data-flag-title="' + vm.route.path + ' ">'
+              '<span id="' + currentPageRoute + '" class="leancloud_visitors" data-flag-title="' + currentPageRoute + ' ">'
               + '<em class="post-meta-item-text" style="font-style: normal;">当前页访问次数: </em>'
               + '<i class="leancloud-visitors-count" style="font-style: normal;color: #7f8c8d;"></i>'
               + '</span>'
@@ -149,7 +150,7 @@
                 appId: 'eDh3HdWa5hfbaKHvXdW0CbiP-MdYXbMMI',
                 appKey: 'kzB7z1dJjn0DP9m6y8oXSpy1',
                 placeholder: '快来留下你的评论吧 !',
-                path: vm.route.path,
+                path: currentPageRoute,
                 visitor: true,
                 requiredFields: ['nick','mail'],
                 avatar: "robohash"
