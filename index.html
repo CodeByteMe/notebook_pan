@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js'></script>
   <style>
     :root {
       --docsifytabs-border-color: #ededed;
@@ -116,7 +116,7 @@
                   clearInterval(loadFunction);
                 } else {
                   var currentTimestamp = new Date().getTime();
-                  if (currentTimestamp - timestamp >= 2000) {
+                  if (currentTimestamp - timestamp >= 5000) {
                     onlineMusic.setAttribute("src", "//player.bilibili.com/player.html?aid=285319271&bvid=BV13f4y1S7zq&cid=178189768&page=1");
                     image.src="";
                     clearInterval(loadFunction);
