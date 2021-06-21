@@ -51,6 +51,9 @@
 # 视频床
 * [free-hls](https://github.com/sxyazi/free-hls)([在线演示](https://sxyz.gitee.io/free-hls/usage.html))
 
+# 远程
+* [rustdesk](https://github.com/rustdesk/rustdesk)
+
 # SSH终端
 * [SSH终端](https://github.com/it234/gowebssh)
 * [GateOne](https://github.com/liftoff/GateOne)
