@@ -36,7 +36,7 @@ kill -9 进程号
 * [docker](笔记/常用工具/docker.md)
 * [dubbo](笔记/常用工具/dubbo.md)
 * [flink](笔记/常用工具/flink.md)
-* [git](笔记/常用工具/git.md)
+* [git](笔记/常用工具/git1.md)
 * [maven](笔记/常用工具/maven.md)
 * [velocity](笔记/常用工具/velocity.md)
 * [vscode](笔记/常用工具/vscode.md)
