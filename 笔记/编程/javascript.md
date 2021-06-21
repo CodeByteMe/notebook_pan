@@ -80,3 +80,35 @@ localStorage.clear()
 > 取的时候使用`JSON.parse(localStorage.getItem("name"))`
 
 [参考](https://www.cnblogs.com/wuweb/p/7846752.html)
+
+## JavaScript判断是否可以上外网
+```javascript
+// 主要功能用于实现不同网加载不同的链接
+var onlineMusic = document.querySelector("#onlineMusic");
+var timestamp = new Date().getTime();
+
+// 用加载外网图片的形式来判断是否可以访问外网
+var image = new Image();
+image.src = "http://youtube.com/favicon.ico";
+
+// 图片可能一下子加载不出来, 使用setInterval循环判断加载情况
+var loadFunction = setInterval(function() {
+	// 图片加载完成, complete是true
+	if (image.complete) {
+		onlineMusic.setAttribute("src", "https://www.youtube.com/embed/5qap5aO4i9A");
+		clearInterval(loadFunction);
+	} else { 
+		var currentTimestamp = new Date().getTime();
+		// 图片一直加载, 则complete没有返回值, 故需要使用时间判断超时再处理
+		if (currentTimestamp - timestamp >= 2000) {
+			onlineMusic.setAttribute("src", "//player.bilibili.com/player.html?aid=285319271&bvid=BV13f4y1S7zq&cid=178189768&page=1");
+			// 将image.src赋值为""则中止请求
+			image.src="";
+			clearInterval(loadFunction);
+		}
+	}
+}, 100);
+```
+[参考1](https://juejin.cn/post/6844903773844799502)  
+[参考2](https://segmentfault.com/q/1010000039824524)  
+[参考3](https://blog.csdn.net/ZLJ925/article/details/77917190)
