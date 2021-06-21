@@ -66,6 +66,16 @@ git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
+## git查看配置
+```bash
+# git查看系统配置
+git config --system --list
+# git查看当前用户配置
+git config --global --list
+# git查看当前仓库配置
+git config --local --list
+```
+
 # 其他操作
 ## github获取token
 1. 登录后, 点击头像, 进入`settings`
