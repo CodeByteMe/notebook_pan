@@ -101,7 +101,7 @@
       },
       plugins: [
         function(hook, vm) {
-            hook.ready(function() {
+            hook.doneEach(function() {
               var onlineMusic = document.querySelector("#onlineMusic");
               var timestamp = new Date().getTime();
 
