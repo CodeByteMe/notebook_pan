@@ -71,3 +71,18 @@ git push -f origin master
 git fetch
 git merge
 ```
+
+## git设置代理
+```bash
+# 设置ss, 取消--global将只添加代理到本仓库
+git config --global http.proxy 'socks5://127.0.0.1:1080'
+git config --global https.proxy 'socks5://127.0.0.1:1080'
+
+# 设置代理, 取消--global将只添加代理到本仓库
+git config --global http.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+
+# 取消代理, 取消--global将只添加代理到本仓库
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
