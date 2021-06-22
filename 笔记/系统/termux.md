@@ -95,7 +95,8 @@ vim .zshrc
 ./study_init.sh
 ```
 
-# termux安装code-server
+# ~~termux安装code-server~~
+此方式不再使用, 可以参考[code-server官方教程](#code-server官方安装教程)  
 ```bash
 # 升级软件源
 pkg update -y
@@ -104,8 +105,6 @@ pkg install -y python nodejs yarn
 # 安装code-server
 # 安装的时候会非常慢,耐心等待(在google-cloud/logging处会等很久)
 yarn global add code-server
-# 如果安装最新版的code-server出了其他问题不知道怎么办,可以装如下版本
-# yarn global add code-server@3.8.0 
 # 修复Visual Studio Code依赖的spdlog
 cd ~/.config/yarn/global/node_modules/code-server/lib/vscode/node_modules/spdlog/
 vim binding.gyp
@@ -136,6 +135,28 @@ nohup code-server --auth password --bind-addr 0.0.0.0:8080 &
 cat ~/.config/code-server/config.yaml
 ```
 [参考](https://www.v2ex.com/t/693969)
+
+# code-server官方安装教程
+```bash
+# 先更新一下仓库
+apt update && apt upgrade
+# 然后安装code-server所需要的所有软件
+apt install build-essential python git nodejs yarn
+# 然后安装code-server
+yarn global add code-server
+# 直接运行code-server, 这样localhost:8080就会有界面出现
+code-server
+# 如果要对code-server更新则执行
+yarn global upgrade code-server --latest
+
+# 另外, 启动的时候可以如下
+# 这样启动后会有密码,切局域网可以访问
+export PASSWORD=123456 
+nohup code-server --auth password --bind-addr 0.0.0.0:8080 &
+# 如果不设置登录密码可以这样查看
+cat ~/.config/code-server/config.yaml
+```
+[参考](https://github.com/cdr/code-server/blob/5d5e6314a15877d1e6d6f82fcdcfb38355f1f758/docs/install.md#termux)
 
 # 安卓5安装termux
 ```bash
