@@ -104,6 +104,8 @@ pkg install -y python nodejs yarn
 # 安装code-server
 # 安装的时候会非常慢,耐心等待(在google-cloud/logging处会等很久)
 yarn global add code-server
+# 如果安装最新版的code-server出了其他问题不知道怎么办,可以装如下版本
+# yarn global add code-server@3.8.0 
 # 修复Visual Studio Code依赖的spdlog
 cd ~/.config/yarn/global/node_modules/code-server/lib/vscode/node_modules/spdlog/
 vim binding.gyp
