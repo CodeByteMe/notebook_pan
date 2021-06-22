@@ -134,3 +134,36 @@ nohup code-server --auth password --bind-addr 0.0.0.0:8080 &
 cat ~/.config/code-server/config.yaml
 ```
 [参考](https://www.v2ex.com/t/693969)
+
+# 安卓5安装termux
+```bash
+# 安卓5能够安装的termux版本为0.49
+# 因为新版termux软件源变了, 安卓5装好termux后是无法进行仓库更新的
+# 需要先修改仓库源地址
+vi $PREFIX/etc/apt/sources.list.d/game.list
+# 原地址为下边这个, 先注释掉他
+# deb https://dl.bintray.com/grimler/game-packages-21 games stable
+# 然后换成下边这个地址
+deb https://termux.com/game-packages-21-bin games stable
+
+# 接着修改另一个仓库源地址
+vi $PREFIX/etc/apt/sources.list.d/science.list
+# 原地址为下边这个, 先注释掉他
+# deb https://dl.bintray.com/grimler/science-packages-21 science stable
+# 然后换成下边这个地址
+deb https://termux.com/science-packages-21-bin science stable
+# 接着更新仓库源, 
+pkg update
+pkg upgrade
+# 更新仓库源的过程中可能有些选项会选错, 导致上边的仓库源地址变成原来的了(更新完后再更新会有报错)
+# 这个时候可以再检查下仓库源地址是不是变回原来的了, 如果是就再改一下
+
+# 安装openssh
+pkg install openssh
+# 这个貌似需要密码, 使用passwd设置一下密码
+passwd
+# 然后开启sshd即可使用其他设备登录了
+ssh 手机ip -p 8022
+```
+[参考1](https://termux.com/science-packages-21-bin)
+[参考2](https://termux.com/game-packages-21-bin)

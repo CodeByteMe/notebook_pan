@@ -52,6 +52,7 @@ kill -9 进程号
 
 * [cloudflare](笔记/服务商/cloudflare.md)
 * [google](笔记/服务商/google.md)
+* [heroku](笔记/服务商/heroku.md)
 
 #### **浏览器**
 
