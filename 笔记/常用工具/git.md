@@ -82,6 +82,34 @@ git config --local --list
 2. 进入`Developer settings`, `Personal access tokens`, `Generate new token`
 3. 为token起一个名, 然后选择token的权限范围(可以全选), 然后`Generate token`即可
 
+## github使用ssh登录
+```bash
+# 进入~/.ssh/下是否有authorized_keys, id_rsa, id_rsa.pub, 没有则使用如下命令生成ssh公私钥
+cd ~/./ssh
+# email换成自己的地址, 中间一路回车即可
+ssh-keygen -t rsa -C "email@email.com"
+# 查看并复制公钥
+cat id_rsa.pub
+# 登录github, 点击头像-> Settings-> SSH and GPG keys-> New SSH key
+# title任意起名, key复制进取刚刚复制的公钥
+# 然后保存, 使用如下命令检测是否操作成功
+ssh git@github.com
+# 出现如下提示则成功
+# Hi xxx! You've successfully authenticated, but GitHub does not # provide shell access. 
+# Connection to github.com closed.
+# 然后修改推送remote
+# git remote set-url origin git@github.com:github用户名/github仓库名.git
+git remote set-url origin git@github.com:user/repo.git
+# 然后就可以提交了
+# 若提示如下, 则可以等下再推送, 即可成功推送
+#   kex_exchange_identification: Connection closed by remote host
+#   Connection closed by 13.250.177.223 port 22
+#   fatal: Could not read from remote repository.
+#   
+#   Please make sure you have the correct access rights
+#   and the repository exists.
+```
+
 # 常见报错
 ##  ! [rejected] master -> master (fetch first)
 ```bash
