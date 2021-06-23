@@ -10,3 +10,14 @@ and code = 'test') as t1 ;
 [参考一](https://blog.csdn.net/weixin_45893488/article/details/108000953)  
 [参考二](https://blog.csdn.net/eff666/article/details/105253974)  
 [参考三](https://blog.csdn.net/xupeng874395012/article/details/72883483)  
+
+# 卸载postgresql
+```bash
+apt-get --purge remove postgresql\*
+rm -r /etc/postgresql/
+rm -r /etc/postgresql-common/
+rm -r /var/lib/postgresql/
+userdel -r postgres
+groupdel postgres
+```
+[参考](https://www.cnblogs.com/yushuo/p/13958712.html)

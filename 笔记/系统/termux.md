@@ -204,9 +204,52 @@ apt install default-jdk
 apt install python3
 # 安装pip
 apt install python3-pip
+# 安装postgresql
+pkg install postgresql
+# 设置数据库的文件夹
+# 创建数据库目录
+mkdir -p ~/software/data/pgdata
+# 初始化数据库目录
+initdb ~/software/data/pgdata
+# 修改外部访问权限
+vi ~/software/data/pgdata/pg_hba.conf
+# 向下找到# IPv4 local connections:, 将127.0.0.1/32修改为下边的IP
+0.0.0.0/0
+# :wq保存退出
+# 回到用户根目录
+cd ~
+# 运行postgresql, 外部即可用例如dbeaver连接了
+postgres -D ~/software/data/pgdata -h 0.0.0.0
+# postgresql连接的用户名使用如下命令查看
+whoami
+
 # 如需在debian安装code-server可参考`termux挂载的debian中安装code-server`
 ```  
-[参考](https://zhuanlan.zhihu.com/p/95865982)
+[参考1](https://zhuanlan.zhihu.com/p/95865982)  
+[参考2](https://www.bilibili.com/video/av842947375/)  
+[参考3](https://blog.csdn.net/baidu_18607183/article/details/54093251)  
+
+# termux自启动时的一些脚本命令
+可以将脚本保存成`xx.sh`, 然后赋予执行权限并将脚本路径添加到`.zshrc`文件后  
+需要安装`zsh`, 可以参考`安装终端配色`  
+
+```bash
+#!/bin/bash
+sshd_count=`ps -ef | grep sshd | grep -v grep | wc -l`
+if [ $sshd_count -eq 0 ]
+then
+    # open sshd
+    sshd
+    # open postgresql
+    nohup postgres -D software/data/pgdata -h 0.0.0.0 &
+    # start debian
+    ./start-debian.sh
+fi
+
+# keep termux waking
+termux-wake-lock
+```
+
 
 # 安卓5安装termux
 ```bash
