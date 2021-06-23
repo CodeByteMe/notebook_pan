@@ -181,6 +181,7 @@ cat ~/.config/code-server/config.yaml
     2. 点击复制, 然后点击启动, 将命令粘贴到termux命令行运行.中间过程可能较慢, 建议使用小飞机进行加速
     3. 安装好后使用`./start-debian.sh`来运行新安装的debian
 2. 一些其他操作
+
 ```bash
 # termux的操作
 # 挂载手机外部存储到debian
