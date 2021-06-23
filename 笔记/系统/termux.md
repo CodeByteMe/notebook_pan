@@ -198,6 +198,12 @@ apt install gcc
 apt install g++
 apt install gfortran
 apt install cmake
+# 安装openJDK11
+apt install default-jdk
+# 安装python3
+apt install python3
+# 安装pip
+apt install python3-pip
 # 如需在debian安装code-server可参考`termux挂载的debian中安装code-server`
 ```  
 [参考](https://zhuanlan.zhihu.com/p/95865982)
