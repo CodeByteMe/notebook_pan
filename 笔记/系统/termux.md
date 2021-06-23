@@ -95,8 +95,8 @@ vim .zshrc
 ./study_init.sh
 ```
 
-# ~~termux安装code-server~~
-此方式不再使用, 可以参考[code-server官方教程](#code-server官方安装教程)  
+# code-server安装
+## termux安装code-server
 ```bash
 # 升级软件源
 pkg update -y
@@ -136,7 +136,7 @@ cat ~/.config/code-server/config.yaml
 ```
 [参考](https://www.v2ex.com/t/693969)
 
-# code-server官方安装教程
+## code-server官方安装教程
 ```bash
 # 先更新一下仓库
 apt update && apt upgrade
@@ -157,6 +157,50 @@ nohup code-server --auth password --bind-addr 0.0.0.0:8080 &
 cat ~/.config/code-server/config.yaml
 ```
 [参考](https://github.com/cdr/code-server/blob/5d5e6314a15877d1e6d6f82fcdcfb38355f1f758/docs/install.md#termux)
+
+## termux挂载的debian中安装code-server 
+这个方法适用于在termux中安装`code-server`怎么都安装不好的情况(如果速度过慢可以使用小飞机加速)  
+使用之前可以参考[termux安装debian](#termux安装debian)先行安装好系统  
+```bash
+# 在`http://github.com/cdr/code-server/releases`中找到最新版的arm64的code-server的软件包链接并复制, 使用wget下载
+cd ~
+wget https://github.com/cdr/code-server/releases/download/v3.10.2/code-server_3.10.2_arm64.deb
+# 下载好后使用dpkg -i 下载的文件名进行安装
+dpkg -i code-server_3.10.2_arm64.deb
+# 接着就可以启动了
+# 这样启动后会有密码, 且切局域网可以访问
+export PASSWORD=123456 
+nohup code-server --auth password --bind-addr 0.0.0.0:8080 &
+# 如果不设置登录密码可以这样查看
+cat ~/.config/code-server/config.yaml
+```
+
+# termux安装debian
+1. 下载[AnLinux](https://f-droid.org/zh_Hans/packages/exa.lnx.a/), 装好后
+    1. 点击选择, 选择一个linux发行版, 这里选择`debian`
+    2. 点击复制, 然后点击启动, 将命令粘贴到termux命令行运行.中间过程可能较慢, 建议使用小飞机进行加速
+    3. 安装好后使用`./start-debian.sh`来运行新安装的debian
+2. 一些其他操作
+```bash
+# termux的操作
+# 挂载手机外部存储到debian
+vi ./start-debian.sh
+# 然后去掉`#command+=“ -b /sdcard”`的注释
+# 这样是默认挂载到debian的根目录, 可以改成下边的格式挂载到/root目录下
+command+=“ -b /sdcard:/root/sdcard”
+
+# debian的操作
+# 进行软件源更新
+apt update
+apt upgrade
+# 安装常用软件
+apt install gcc
+apt install g++
+apt install gfortran
+apt install cmake
+# 如需在debian安装code-server可参考`termux挂载的debian中安装code-server`
+```
+[参考](https://zhuanlan.zhihu.com/p/95865982)
 
 # 安卓5安装termux
 ```bash
