@@ -89,6 +89,7 @@ git reflog
 # 然后设为新版本即可
 git reset --hard commitId
 ```
+[参考](https://www.jianshu.com/p/3020740561a8)
 
 # 其他操作
 ## github获取token
