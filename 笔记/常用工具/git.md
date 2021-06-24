@@ -76,7 +76,7 @@ git config --global --list
 git config --local --list
 ```
 
-# git版本回退
+## git版本回退
 ```bash
 # 从近到远显示提交日志, 
 # 加上--pretty=oneline可以只显示commit id 和 commit message, 会整齐一些
