@@ -76,6 +76,20 @@ git config --global --list
 git config --local --list
 ```
 
+# git版本回退
+```bash
+# 从近到远显示提交日志, 
+# 加上--pretty=oneline可以只显示commit id 和 commit message, 会整齐一些
+git log
+# 回退到某个commit message的版本, 需要加上commit id回退
+git reset --hard commitId
+# 然后即可推送旧版本
+# 如果想要再推送回退版本后的新版本, 可以如下找到commit id
+git reflog
+# 然后设为新版本即可
+git reset --hard commitId
+```
+
 # 其他操作
 ## github获取token
 1. 登录后, 点击头像, 进入`settings`
