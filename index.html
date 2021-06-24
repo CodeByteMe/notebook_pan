@@ -118,7 +118,7 @@
                   clearInterval(loadFunction);
                 } else {
                   var currentTimestamp = new Date().getTime();
-                  if (currentTimestamp - timestamp >= 3000) {
+                  if (currentTimestamp - timestamp >= 5000) {
                     onlineMusic.setAttribute("src", "//player.bilibili.com/player.html?aid=285319271&bvid=BV13f4y1S7zq&cid=178189768&page=1");
                     image.src="";
                     clearInterval(loadFunction);
