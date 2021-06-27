@@ -205,6 +205,8 @@ ps aux
 ps -elf
 # 只查看某个进程的信息
 ps -elf | grep bash
+# 获取某个运行进程的个数
+ps -ef|grep bash |grep -v "grep"|wc -l
 # 动态进程信息
 top
 ```
