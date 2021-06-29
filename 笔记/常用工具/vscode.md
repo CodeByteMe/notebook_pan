@@ -9,6 +9,7 @@
     "workbench.startupEditor": "newUntitledFile",
     "editor.minimap.enabled": false,
     "java.home": "/opt/apps/jdk-11.0.7",
+	"spring-boot.ls.java.home": "/root/software/jdk-11.0.7/",
     "maven.executable.path": "/opt/apps/maven-3.6.3/bin/mvn",
     "java.configuration.maven.userSettings": "/opt/apps/maven-3.6.3/conf/settings.xml",
     "maven.terminal.customEnv": [
