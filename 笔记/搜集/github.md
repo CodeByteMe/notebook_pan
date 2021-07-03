@@ -68,6 +68,9 @@
 * [HTML拖拽插件](https://github.com/bevacqua/dragula)
 * [gost](https://github.com/ginuerzh/gost/), [doc](https://docs.ginuerzh.xyz/gost/)协议隧道转换(socks5到http等), [参考](https://sunpma.com/862.html)
 
+# socks5
+* [gost-socks5-onekey](https://github.com/shell-script/gost-socks5-onekey), 9参考](https://telegra.ph/socks5%E5%8F%8AMTProto%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC-11-20)
+
 # v2ray
 * [google-mirror](https://github.com/hmsjy2017/Google-Mirrors)
 * [v2-ui](https://github.com/sprov065/v2-ui), 自带面板
