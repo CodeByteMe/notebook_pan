@@ -33,6 +33,7 @@
     "[json]": {
         "editor.defaultFormatter": "HookyQR.beautify"
     },
+	"browser-preview.chromeExecutable": "/opt/google/chrome/google-chrome",
 }
 ```
 
@@ -42,6 +43,7 @@ Auto Close Tag
 Auto Rename Tag
 Beautify
 Bracket Pair Colorizer
+Browser Preview
 C#
 Language
 Cloudfoundry Manifest YML Support
@@ -160,7 +162,7 @@ XML
 }
 ```
 
-## [代理](https://stackoverflow.com/questions/57289351/is-it-possible-to-create-a-proxy-in-remote-ssh-visual-studio-code)配置
+## [代理配置](https://stackoverflow.com/questions/57289351/is-it-possible-to-create-a-proxy-in-remote-ssh-visual-studio-code)
 ```
 Host wx
     HostName 192.168.2.1
