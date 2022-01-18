@@ -63,6 +63,7 @@
 * [GateOne](https://github.com/liftoff/GateOne)
 * [rtty](https://github.com/zhaojh329/rtty)
 * [webssh](https://github.com/huashengdun/webssh), 安装可参考该[博客](https://blog.csdn.net/wwb1234560/article/details/107517894)
+* [webssh2](https://github.com/Jrohy/webssh)
 
 # socks5
 * [gost-socks5-onekey](https://github.com/shell-script/gost-socks5-onekey), 9参考](https://telegra.ph/socks5%E5%8F%8AMTProto%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC-11-20)
