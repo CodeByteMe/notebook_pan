@@ -66,7 +66,7 @@
 * [webssh2](https://github.com/Jrohy/webssh)
 
 # socks5
-* [gost-socks5-onekey](https://github.com/shell-script/gost-socks5-onekey), 9参考](https://telegra.ph/socks5%E5%8F%8AMTProto%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC-11-20)
+* [gost-socks5-onekey](https://github.com/shell-script/gost-socks5-onekey), [参考](https://telegra.ph/socks5%E5%8F%8AMTProto%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC-11-20)
 
 # v2ray
 * [google-mirror](https://github.com/hmsjy2017/Google-Mirrors)
@@ -113,3 +113,4 @@
 * [HTML拖拽插件](https://github.com/bevacqua/dragula)
 * [freenom延期](https://github.com/luolongfei/freenom)
 * [常用免费API搜集](https://github.com/fangzesheng/free-api)
+* [mtg部署](https://github.com/9seconds)
