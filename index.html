@@ -8,10 +8,14 @@
 	<meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="//unpkg.com/docsify@4/lib/themes/vue.css">
+  <!-- <link rel="stylesheet" href="//unpkg.com/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="//unpkg.com/katex@0.10.0/dist/katex.min.css">
   <script defer src="//unpkg.com/katex@0.10.0/dist/katex.min.js"></script>
-  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script> -->
+  <link rel="stylesheet"  href="//jscdn.host/release/ucode/ajax/libs/docsify/4.12.2/themes/vue.min.css">
+  <link rel="stylesheet"  href="//jscdn.host/release/ucode/ajax/libs/KaTeX/0.10.0/katex.min.css">
+  <script src="//jscdn.host/release/ucode/ajax/libs/KaTeX/0.10.0/katex.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/valine/1.4.16/Valine.min.js"></script>
   <style>
     :root {
       --docsifytabs-border-color: #ededed;
@@ -170,22 +174,36 @@
     }
 	</script>
 	<!-- Docsify v4 -->
-	<script src="//unpkg.com/docsify@4"></script>
-	<script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
-  <script src="//unpkg.com/docsify-tabs@1"></script>
-	<script src="//unpkg.com/prismjs@1.21.0/components/prism-java.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-json.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-xml-doc.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-css.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-javascript.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-bash.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-python.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-yaml.min.js"></script>
+  <!-- <script src="//unpkg.com/docsify@4"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.21.0/components/prism-java.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.22.0/components/prism-json.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.22.0/components/prism-xml-doc.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.22.0/components/prism-css.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.22.0/components/prism-javascript.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.22.0/components/prism-bash.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.22.0/components/prism-python.min.js"></script>
+  <script src="//unpkg.com/prismjs@1.22.0/components/prism-yaml.min.js"></script>
 	<script src="//unpkg.com/prismjs@1.22.0/components/prism-properties.min.js"></script>
-	<script src="//unpkg.com/prismjs@1.22.0/components/prism-csharp.min.js"></script>
-	<script src="//unpkg.com/docsify-copy-code"></script>
-  <script src="//unpkg.com/viz.js@1.8.0/viz.js"></script>
-  <!--将cdn.jsdelivr.net/npm/换成unpkg.com-->
+	<script src="//unpkg.com/prismjs@1.22.0/components/prism-csharp.min.js"></script>-->
+  <script src="//jscdn.host/release/ucode/ajax/libs/docsify/4.12.2/docsify.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/docsify/4.12.2/plugins/search.min.js"></script>
+  <script src="//unpkg.com/docsify-tabs@1"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-java.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-json.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-xml-doc.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-css.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-javascript.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-bash.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-python.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-yaml.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-properties.min.js"></script>
+  <script src="//jscdn.host/release/ucode/ajax/libs/prism/1.22.0/components/prism-csharp.min.js"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
+  <!-- <script src="//unpkg.com/viz.js@1.8.0/viz.js"></script> -->
+  <!--20220116: 以將所有的cdn.jsdelivr.net/npm換成unpkg.com-->
+  <script src="//jscdn.host/release/ucode/ajax/libs/viz.js/1.8.0/viz.js"></script>
+  <!---20220214:将部分unpkg.com库换成jscdn.host库-->
 </body>
 
 </html>
