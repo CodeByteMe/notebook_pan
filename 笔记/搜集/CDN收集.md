@@ -31,6 +31,6 @@
 * [bootcdn](https://www.bootcdn.cn/)
 * [小麦](https://jscdn.pro)
 * [unpkg](https://unpkg.com/)
-* [jsdelivr][https://www.jsdelivr.com/]
+* [jsdelivr](https://www.jsdelivr.com/)
 * [cdnjs国内](https://cdnjs.net/)
 * [cdnjs国外](https://cdnjs.com/)
