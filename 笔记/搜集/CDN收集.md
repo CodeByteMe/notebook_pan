@@ -23,3 +23,14 @@
 # 免费
 * [CloudFlare](https://dash.cloudflare.com/)
 * [DDOS-GUARD](https://ddos-guard.net/)(免费无限流量)
+
+# 静态资源
+* [字节跳动](http://cdn.bytedance.com/)
+* [新浪](https://lib.sinaapp.com/)
+* [七牛](https://www.staticfile.org/)
+* [bootcdn](https://www.bootcdn.cn/)
+* [小麦](https://jscdn.pro)
+* [unpkg](https://unpkg.com/)
+* [jsdelivr][https://www.jsdelivr.com/]
+* [cdnjs国内](https://cdnjs.net/)
+* [cdnjs国外](https://cdnjs.com/)
